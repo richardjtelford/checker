@@ -1,0 +1,21 @@
+Package: checker
+Type: Package
+Title: Checks R Configuration Setup Correctly Before Class
+Version: 0.1.0
+Authors@R: 
+  person("Richard J.", "Telford", email = "richard.telford@uib.no", role = c("aut", "cre"), 
+        comment = c(ORCID = "https://orcid.org/0000-0001-9826-3076"))
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+URL: https://github.com/richardjtelford/checker/
+BugReports: https://github.com/richardjtelford/checker/issues
+Imports: 
+    yaml
+Suggests: 
+    rstudioapi,
+    cli,
+    quarto
+RoxygenNote: 7.1.2
