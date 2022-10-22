@@ -7,7 +7,7 @@
 #'
 #' @export
 
-chk_requirements <- function(path = "inst/default.yaml"){
+chk_requirements <- function(path = system.file("default.yaml", package = "checker")){
   outcome <- c(good = 0, ok = 0, bad = 0)
   yam <- read_yaml(file = path)
   names(yam) <- tolower(names(yam))
@@ -26,6 +26,10 @@ chk_requirements <- function(path = "inst/default.yaml"){
 
   if(!is.null(yam$quarto)) {
     outcome<- outcome + chk_quarto(yam$quarto)
+  }
+
+  if(!is.null(yam$git)) {
+    outcome<- outcome + chk_git(yam$git)
   }
 
   if(!is.null(yam$packages)){
@@ -62,6 +66,38 @@ chk_rversion <- function(yam){
   outcome <- chk_r(what = "R", yam = yam, version = rversion)
   outcome
 }
+
+chk_git_version <- function(){
+  git_version <- tryCatch(
+    system("git --version", intern = TRUE, ignore.stderr = TRUE),
+    error = function(cond){return(NULL)}
+  )
+  git_version <- gsub("[a-z]", "", tolower(git_version))
+  git_version <- trimws(git_version)
+  git_version
+}
+
+chk_git <- function(yam){
+  git_version <- chk_git_version()
+
+  if(is.null(git_version)){
+    chk_cat(message = "git not installed", status = "danger")
+    outcome <- c(good = 0, ok = 0, bad = 1)
+    return(outcome)
+  }
+
+
+  if(!is.null(yam$recommended)) {
+
+    outcome <- chk_r(what = "git", yam = yam, version = git_version)
+  } else{
+    chk_cat("git is installed", status = "success")
+    outcome <- c(good = 1, ok = 0, bad = 0)
+
+  }
+  outcome
+}
+
 
 chk_r <- function(what, yam, version){
   outcome <- c(good = 0, ok = 0, bad = 0)
