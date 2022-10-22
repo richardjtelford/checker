@@ -16,23 +16,25 @@ chk_requirements <- function(path = "inst/default.yaml"){
   chk_cat(paste0("Date = ", Sys.time()))
   chk_cat(paste0("os = ", osVersion))
 
-  if("rstudio" %in% names(yam)) {
+  if(!is.null(yam$rstudio)) {
     outcome <- outcome + chk_rstudio(yam = yam$rstudio)
   }
 
-  if("r_version" %in% names(yam)) {
+  if(!is.null(yam$r_version)) {
     outcome <- outcome + chk_rversion(yam = yam$r_version)
   }
 
-  if("quarto" %in% names(yam)) {
+  if(!is.null(yam$quarto)) {
     outcome<- outcome + chk_quarto(yam$quarto)
   }
 
-  if("packages" %in% names(yam)){
+  if(!is.null(yam$packages)){
     for(i in seq_along(yam$packages)) {
       outcome<- outcome + chk_package(yam$packages[i])
     }
   }
+
+  # outcomes
   if(outcome["bad"] > 0) {
     chk_cat("You have some issues that need addressing", status = "danger")
   } else if(outcome["ok"] > 0) {
