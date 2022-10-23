@@ -14,17 +14,13 @@ chk_quarto_version <- function() {
 }
 
 chk_version <- function(what, yam, version){
-  outcome <- c(good = 0, ok = 0, bad = 0)
   if (compareVersion(version, yam$recommended) >= 0) {
-    chk_cat(message = paste(what, "version", version, "is installed"), status = "success")
-    outcome["good"] <- 1
+    outcome <- chk_cat(message = paste(what, "version", version, "is installed"), status = "success")
 
   } else if (!is.null(yam$minimum) && compareVersion(version, yam$minimum)) {
-    chk_cat(message = paste("You have", what, "version", version, "installed. We recommend you upgrade to version", yam$recommended, "or newer"), status = "warning")
-    outcome["ok"] <- 1
+    outcome <- chk_cat(message = paste("You have", what, "version", version, "installed. We recommend you upgrade to version", yam$recommended, "or newer"), status = "warning")
   } else {
-    chk_cat(message = paste("You have", what, " version", version, "installed. Please upgrade to version", yam$recommended, "or newer"), status = "danger")
-    outcome["bad"] <- 1
+    outcome <- chk_cat(message = paste("You have", what, " version", version, "installed. Please upgrade to version", yam$recommended, "or newer"), status = "danger")
   }
   outcome
 }
@@ -42,11 +38,12 @@ chk_status <- function(status) {
   )
 }
 
-chk_cat <- function(message, status = "info") {
+chk_cat <- function(message, status = "none") {
   has_cli <- requireNamespace("cli", quietly = TRUE)
   if (has_cli) {
     chk_status(status)(message, wrap = TRUE)
   } else {
     message(message)
   }
+  status
 }
