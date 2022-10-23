@@ -4,7 +4,7 @@
 \alias{chk_requirements}
 \title{Check R setup before a class}
 \usage{
-chk_requirements(path = "inst/default.yaml")
+chk_requirements(path = system.file("default.yaml", package = "checker"))
 }
 \arguments{
 \item{path}{path to yaml file}
