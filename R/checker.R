@@ -56,26 +56,18 @@ chk_rstudio <- function(yam) {
   } else {
     rstudio_version <- rstudioapi::versionInfo()$version
     rstudio_version <- as.character(rstudio_version)
-   outcome <- chk_r(what = "RStudio", yam = yam, version = rstudio_version)
+   outcome <- chk_version(what = "RStudio", yam = yam, version = rstudio_version)
   }
   outcome
 }
 
 chk_rversion <- function(yam){
   rversion <- paste(R.version$major, R.version$minor, sep = ".")
-  outcome <- chk_r(what = "R", yam = yam, version = rversion)
+  outcome <- chk_version(what = "R", yam = yam, version = rversion)
   outcome
 }
 
-chk_git_version <- function(){
-  git_version <- tryCatch(
-    system("git --version", intern = TRUE, ignore.stderr = TRUE),
-    error = function(cond){return(NULL)}
-  )
-  git_version <- gsub("[a-z]", "", tolower(git_version))
-  git_version <- trimws(git_version)
-  git_version
-}
+
 
 chk_git <- function(yam){
   git_version <- chk_git_version()
@@ -89,7 +81,7 @@ chk_git <- function(yam){
 
   if(!is.null(yam$recommended)) {
 
-    outcome <- chk_r(what = "git", yam = yam, version = git_version)
+    outcome <- chk_version(what = "git", yam = yam, version = git_version)
   } else{
     chk_cat("git is installed", status = "success")
     outcome <- c(good = 1, ok = 0, bad = 0)
@@ -99,7 +91,7 @@ chk_git <- function(yam){
 }
 
 
-chk_r <- function(what, yam, version){
+chk_version <- function(what, yam, version){
   outcome <- c(good = 0, ok = 0, bad = 0)
   if (compareVersion(version, yam$recommended) >= 0) {
     chk_cat(message = paste(what, "version", version, "is installed"), status = "success")
@@ -116,15 +108,6 @@ chk_r <- function(what, yam, version){
 }
 
 
-chk_status <- function(status) {
-  switch(status,
-         info = cli::cli_alert_info,
-           success = cli::cli_alert_success,
-           warning = cli::cli_alert_warning,
-           danger = cli::cli_alert_danger,
-         message # default value
-  )
-}
 
 chk_cat <- function(message, status = "info") {
   has_cli <- requireNamespace("cli", quietly = TRUE)
@@ -148,7 +131,7 @@ chk_package <- function(yam) {
   }
 
   if(!is.null(yam[[1]]$recommended)) {
-    outcome <- chk_r(what = names(yam), yam = yam[[1]], version = as.character(packageVersion(names(yam))))
+    outcome <- chk_version(what = names(yam), yam = yam[[1]], version = as.character(packageVersion(names(yam))))
     outcome
   } else{
     outcome <- c(good = 1, ok = 0, bad = 0)
@@ -169,8 +152,8 @@ chk_quarto <- function(yam){
   }
 
   if(!is.null(yam$recommended)) {
-    quarto_version <- system("quarto --version", intern = TRUE)
-    outcome <- chk_r(what = "quarto", yam = yam, version = quarto_version)
+    quarto_version <- chk_quarto_version()
+    outcome <- chk_version(what = "quarto", yam = yam, version = quarto_version)
     outcome
   } else{
     chk_cat("quarto is installed", status = "success")
