@@ -97,10 +97,10 @@ chk_git <- function(yam){
 
 chk_package <- function(yam) {
   if(!requireNamespace(names(yam), quietly = TRUE)) {
-    if(is.null(yam$message)) {
+    if(is.null(yam[[1]]$message)) {
       message <- paste("Please install package", names(yam))
     } else {
-      message <- yam$message
+      message <- yam[[1]]$message
     }
     outcome <- chk_cat(message = message, status = "danger")
     return(outcome)
