@@ -62,6 +62,9 @@ chk_rstudio <- function(yam) {
     rstudio_version <- as.character(rstudio_version)
    outcome <- chk_version(what = "RStudio", yam = yam, version = rstudio_version)
   }
+  if(!is.null(yam$options)) {
+    outcome <- c(outcome, chk_rstudio_options(yam = yam$options))
+  }
   outcome
 }
 

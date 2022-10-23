@@ -10,10 +10,10 @@ One of the challenges with teaching R is that some students come to
 practicals with very old versions of R, or without critical packages
 installed, despite instructions.
 
-The `checker` package check whether the recommended version of R,
-RStudio and packages are installed. Information on what versions are
-required is specified in yaml file. A yaml file is included in the
-installation, and can also be supplied with a URL.
+The `checker` package check whether the recommended (or more recent)
+versions of R, RStudio and packages are installed. Information on what
+is required is specified in a yaml file. A yaml file is included in the
+installation, and can also be supplied with a URL or path.
 
 ## Installation
 
@@ -33,11 +33,77 @@ run.
 ``` r
 library(checker)
 chk_requirements()
-#> ℹ Date = 2022-10-22 21:46:34
-#> ℹ os = Ubuntu 18.04.6 LTS
+#> → Date = 2022-10-23 23:04:25
+#> → os = Ubuntu 18.04.6 LTS
 #> ✔ RStudio version 2022.7.1.554 is installed
+#> ✔ RStudio option 'save_workspace' set correctly
+#> ✔ RStudio option 'load_workspace' set correctly
 #> ✔ R version 4.2.1 is installed
 #> ✔ quarto version 1.2.198 is installed
+#> ✔ git is installed
 #> ✔ tidyverse version 1.3.1 is installed
+#> ✔ Package here is installed
+#> ✔ Package quarto is installed
 #> ✔ Everything appears to be installed correctly
 ```
+
+By default, `chk_requirements()` uses a yaml file included in the
+installation. To run `chk_requirements()` with your own set of
+requirements, you can use a URL or file path.
+
+``` r
+chk_requirements(path = url("https://raw.githubusercontent.com/richardjtelford/checker/main/inst/default.yaml"))
+```
+
+## The yaml file
+
+Below is the yaml file included in the installation. It can be edited to
+meet your requirements
+
+    #> ---
+    #> r_version:
+    #>   recommended: 4.2.1
+    #>   minimum: 4.1.0
+    #> packages:
+    #>   tidyverse:
+    #>     recommended: 1.3.1
+    #>   here: NA
+    #>   quarto: NA
+    #> rstudio:
+    #>   recommended: 2022.07.1
+    #>   options:
+    #>     save_workspace:
+    #>       value: never
+    #>     load_workspace:
+    #>       value: FALSE
+    #>       message: Set load workspace to FALSE to improve reproducibility
+    #> quarto:
+    #>   recommended: 1.2.198
+    #> git: NA
+    #> ---
+
+The accepted keys are
+
+-   r_version
+-   rstudio
+-   quarto
+-   git
+-   packages
+
+All keys are optional. The first four take “recommended” and “minimum”
+to specify the recommended and minimum versions (the “minimum” field is
+only checked if “recommended” is set). If any version is acceptable, use
+NA.
+
+The rstudio key also accepts an options field, which takes the name with
+value set to the recommended value and an optional message. A list of
+Rstudio options can be found with `usethis:::rstudio_prefs_read()`.
+
+The “packages” key has an element for each package installed. These take
+the same recommended” and “minimum” fields as above, and also a
+“message” field which is printed in the package is not installed. This
+could be used to point to the location of packages not available on
+CRAN.
+
+The dashes denote the start and end of the yaml. The formatting with
+white space must be followed.

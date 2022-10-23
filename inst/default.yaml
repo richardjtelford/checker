@@ -9,6 +9,12 @@ packages:
   quarto: NA
 rstudio:
   recommended: 2022.07.1
+  options:
+    save_workspace:
+      value: never
+    load_workspace:
+      value: FALSE
+      message: Set load workspace to FALSE to improve reproducibility
 quarto:
   recommended: 1.2.198
 git: NA

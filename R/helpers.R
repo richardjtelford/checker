@@ -13,6 +13,31 @@ chk_quarto_version <- function() {
   quarto_version
 }
 
+chk_rstudio_options <- function(yam) {
+
+ outcome <- character(length(yam))
+ for(i in seq_along(yam)) {
+   current <- rstudioapi::readRStudioPreference(names(yam)[i], "Not recognised")
+   if(current == "Not recognised") {
+     outcome[i] <- chk_cat(paste0("Unrecognised RStudio option '", names(yam)[i], "' - check YAML"), status = "info")
+   } else if(current == yam[[i]]$value) {
+     outcome[i] <- chk_cat(paste0("RStudio option '", names(yam)[i], "' set correctly"), status = "success")
+
+   } else {
+     if (!is.null(yam[[i]]$message)) {
+       outcome <- chk_cat(yam[[i]]$message, status = "warning")
+     } else {
+       outcome[i] <- chk_cat(paste0("RStudio option '", names(yam)[i], "' should be set to ", yam[[i]]$value), status = "warning")
+     }
+   }
+  }
+  if(any(outcome == "warning")) {
+    chk_cat("Please read chapter 2.4 of https://biostats-r.github.io/biostats/workingInR/0010_Getting_Started_with_RStudio.html#sec-customise-rstudio for how and why you can configure RStudio", status = "info")
+  }
+  outcome
+}
+
+
 chk_version <- function(what, yam, version){
   if (compareVersion(version, yam$recommended) >= 0) {
     outcome <- chk_cat(message = paste(what, "version", version, "is installed"), status = "success")
