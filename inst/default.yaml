@@ -5,10 +5,11 @@ r_version:
 packages:
   tidyverse:
     recommended: 1.3.1
-  here: NULL
-  quarto: NULL
+  here: NA
+  quarto: NA
 rstudio:
   recommended: 2022.07.1
 quarto:
   recommended: 1.2.198
+git: NA
 ---
