@@ -11,6 +11,7 @@ chk_requirements <- function(path = system.file("default.yaml", package = "check
   outcome <- c(good = 0, ok = 0, bad = 0)
   yam <- read_yaml(file = path)
   names(yam) <- tolower(names(yam))
+  yam <- lapply(yam, as.list)
 
   # metadata
   chk_cat(paste0("Date = ", Sys.time()))
@@ -33,6 +34,7 @@ chk_requirements <- function(path = system.file("default.yaml", package = "check
   }
 
   if(!is.null(yam$packages)){
+    yam$packages <- lapply(yam$packages, as.list)
     for(i in seq_along(yam$packages)) {
       outcome<- outcome + chk_package(yam$packages[i])
     }
