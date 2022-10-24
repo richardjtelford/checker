@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # checker
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/richardjtelford/checker/workflows/R-CMD-check/badge.svg)](https://github.com/richardjtelford/checker/actions)
 <!-- badges: end -->
 
 One of the challenges with teaching R is that some students come to practicals with very old versions of R, or without critical packages installed, despite instructions.
