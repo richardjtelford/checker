@@ -43,9 +43,9 @@ chk_requirements <- function(path = system.file("default.yaml", package = "check
   }
 
   # outcomes
-  if(any(outcome == "bad")) {
+  if(any(outcome == "danger")) {
     chk_cat("You have some issues that need addressing", status = "danger")
-  } else if(any(outcome == "ok")) {
+  } else if(any(outcome == "warning")) {
     chk_cat("You have some issues that you should consider addressing", status = "warning")
   } else {
     chk_cat("Everything appears to be installed correctly", status = "success")
