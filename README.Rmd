@@ -19,15 +19,17 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/richardjtelford/checker/workflows/R-CMD-check/badge.svg)](https://github.com/richardjtelford/checker/actions)
 <!-- badges: end -->
 
-One of the challenges with teaching R is that some students come to practicals with very old versions of R, or without critical packages installed, despite instructions.
+One of the challenges with teaching R is that some students come to practicals with very old versions of R, or without critical packages installed.
+One solution is to use [rstudio.cloud](rstudio.cloud), where the instructor can control the versions of software and packages used. 
 
-The `checker` package check whether the recommended (or more recent) versions of R, RStudio and packages are installed. 
-Information on what is required is specified in a yaml file. 
-A yaml file is included in the installation, and can also be supplied with a URL or path.
+The `checker` attempts to be an alternative solution. 
+It checks whether the recommended (or more recent) versions of R, RStudio and packages, as specified in a yaml file, are installed.
+A sample yaml file is included in the installation. 
+One can also be supplied with a URL or path.
 
 ## Installation
 
-You can install the development version of checker from [GitHub](https://github.com/) with:
+You can install the development version of `checker` from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("remotes")
@@ -56,8 +58,10 @@ chk_requirements(path = url("https://raw.githubusercontent.com/richardjtelford/c
 Below is the yaml file included in the installation. It can be edited to meet your requirements
 
 
+
 ```{r}
 #| echo: FALSE
+#| comment: ""
 readLines("inst/default.yaml") |> writeLines()
 ```
 
@@ -70,7 +74,7 @@ The accepted keys are
 - packages
 
 All keys are optional.
-The first four take "recommended" and "minimum" to specify the recommended and minimum versions (the "minimum" field is only checked if "recommended" is set). If any version is acceptable, use NA.
+The first four take "recommended" and "minimum" to specify the recommended and minimum versions (if only one of "recommended" and "minimum" is set, they are treated in the same). If any version is acceptable, use NA.
 
 The rstudio key also accepts an options field, which takes the name with value set to the recommended value and an optional message. A list of Rstudio options can be found with `usethis:::rstudio_prefs_read()`.
 

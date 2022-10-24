@@ -1,3 +1,7 @@
+chk_has_version <- function(yam) {
+  !(is.null(yam$recommended) && !is.null(yam$minimum))
+}
+
 chk_git_version <- function(){
   git_version <- tryCatch(
     system("git --version", intern = TRUE, ignore.stderr = TRUE),
@@ -37,15 +41,26 @@ chk_rstudio_options <- function(yam) {
   outcome
 }
 
+chk_get_versions <- function(yam) {
+  c(recommended = yam$recommended, minimum = yam$minimum)
+}
 
 chk_version <- function(what, yam, version){
-  if (compareVersion(version, yam$recommended) >= 0) {
-    outcome <- chk_cat(message = paste(what, "version", version, "is installed"), status = "success")
 
-  } else if (!is.null(yam$minimum) && compareVersion(version, yam$minimum)) {
-    outcome <- chk_cat(message = paste("You have", what, "version", version, "installed. We recommend you upgrade to version", yam$recommended, "or newer"), status = "warning")
-  } else {
-    outcome <- chk_cat(message = paste("You have", what, " version", version, "installed. Please upgrade to version", yam$recommended, "or newer"), status = "danger")
+  # => recommended            s
+  # => minimum < recommended  w
+  # => minimum                s
+  # < recommended no minimum  d
+  # < minimum                 d
+  version_rm <- chk_get_versions(yam)
+  version_status <- vapply(version_rm, function(v) compareVersion(version, v), FUN.VALUE = 1)
+
+  if (all(version_status >= 0)) { # >= recommended and minimum
+    outcome <- chk_cat(message = paste(what, "version", version, "is installed"), status = "success")
+  } else if (all(version_status < 0)) { # < recommended and minimum
+    outcome <- chk_cat(message = paste("You have", what, " version", version, "installed. Please upgrade to version", version_rm[1], "or newer"), status = "danger")
+  } else { # beats only one (presumable minimum)
+    outcome <- chk_cat(message = paste("You have", what, "version", version, "installed. We recommend you upgrade to version", version_rm[1], "or newer"), status = "warning")
   }
   outcome
 }

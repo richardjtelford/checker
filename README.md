@@ -10,16 +10,17 @@
 
 One of the challenges with teaching R is that some students come to
 practicals with very old versions of R, or without critical packages
-installed, despite instructions.
+installed. One solution is to use [rstudio.cloud](rstudio.cloud), where
+the instructor can control the versions of software and packages used.
 
-The `checker` package check whether the recommended (or more recent)
-versions of R, RStudio and packages are installed. Information on what
-is required is specified in a yaml file. A yaml file is included in the
-installation, and can also be supplied with a URL or path.
+The `checker` attempts to be an alternative solution. It checks whether
+the recommended (or more recent) versions of R, RStudio and packages, as
+specified in a yaml file, are installed. A sample yaml file is included
+in the installation. One can also be supplied with a URL or path.
 
 ## Installation
 
-You can install the development version of checker from
+You can install the development version of `checker` from
 [GitHub](https://github.com/) with:
 
 ``` r
@@ -35,7 +36,7 @@ run.
 ``` r
 library(checker)
 chk_requirements()
-#> → Date = 2022-10-24 18:14:14
+#> → Date = 2022-10-24 19:15:47
 #> → os = Ubuntu 18.04.6 LTS
 #> ✔ RStudio version 2022.7.1.554 is installed
 #> ✔ RStudio option 'save_workspace' set correctly
@@ -62,27 +63,27 @@ chk_requirements(path = url("https://raw.githubusercontent.com/richardjtelford/c
 Below is the yaml file included in the installation. It can be edited to
 meet your requirements
 
-    #> ---
-    #> r_version:
-    #>   recommended: 4.2.1
-    #>   minimum: 4.1.0
-    #> packages:
-    #>   tidyverse:
-    #>     recommended: 1.3.1
-    #>   here: NA
-    #>   quarto: NA
-    #> rstudio:
-    #>   recommended: 2022.07.1
-    #>   options:
-    #>     save_workspace:
-    #>       value: never
-    #>     load_workspace:
-    #>       value: FALSE
-    #>       message: Set load workspace to FALSE to improve reproducibility
-    #> quarto:
-    #>   recommended: 1.2.198
-    #> git: NA
-    #> ---
+    ---
+    r_version:
+      recommended: 4.2.1
+      minimum: 4.1.0
+    packages:
+      tidyverse:
+        recommended: 1.3.1
+      here: NA
+      quarto: NA
+    rstudio:
+      recommended: 2022.07.1
+      options:
+        save_workspace:
+          value: never
+        load_workspace:
+          value: FALSE
+          message: Set load workspace to FALSE to improve reproducibility
+    quarto:
+      recommended: 1.2.198
+    git: NA
+    ---
 
 The accepted keys are
 
@@ -93,9 +94,9 @@ The accepted keys are
 -   packages
 
 All keys are optional. The first four take “recommended” and “minimum”
-to specify the recommended and minimum versions (the “minimum” field is
-only checked if “recommended” is set). If any version is acceptable, use
-NA.
+to specify the recommended and minimum versions (if only one of
+“recommended” and “minimum” is set, they are treated in the same). If
+any version is acceptable, use NA.
 
 The rstudio key also accepts an options field, which takes the name with
 value set to the recommended value and an optional message. A list of

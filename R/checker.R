@@ -85,7 +85,7 @@ chk_git <- function(yam){
   }
 
 
-  if(!is.null(yam$recommended)) {
+  if(chk_has_version(yam)) {
 
     outcome <- chk_version(what = "git", yam = yam, version = git_version)
   } else{
@@ -109,7 +109,7 @@ chk_package <- function(yam) {
     return(outcome)
   }
 
-  if(!is.null(yam[[1]]$recommended)) {
+  if(chk_has_version(yam[[1]])) {
     outcome <- chk_version(what = names(yam), yam = yam[[1]], version = as.character(packageVersion(names(yam))))
     outcome
   } else{
@@ -128,7 +128,7 @@ chk_quarto <- function(yam){
     return(outcome)
   }
 
-  if(!is.null(yam$recommended)) {
+  if(chk_has_version(yam)) {
     quarto_version <- chk_quarto_version()
     outcome <- chk_version(what = "quarto", yam = yam, version = quarto_version)
   } else{
