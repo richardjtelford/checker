@@ -36,7 +36,7 @@ run.
 ``` r
 library(checker)
 chk_requirements()
-#> → Date = 2022-10-24 19:15:47
+#> → Date = 2022-10-25 18:55:37
 #> → os = Ubuntu 18.04.6 LTS
 #> ✔ RStudio version 2022.7.1.554 is installed
 #> ✔ RStudio option 'save_workspace' set correctly
@@ -61,10 +61,13 @@ chk_requirements(path = url("https://raw.githubusercontent.com/richardjtelford/c
 ## The yaml file
 
 Below is the yaml file included in the installation. It can be edited to
-meet your requirements
+meet your requirements by hand or with the function `chk_make()` which
+takes data.frames of recommended programs, packages, and RStudio options
+as arguments. Recommended and/or minimum version and any message can be
+included in these data.frames.
 
     ---
-    r_version:
+    R:
       recommended: 4.2.1
       minimum: 4.1.0
     packages:
@@ -108,5 +111,5 @@ the same recommended” and “minimum” fields as above, and also a
 could be used to point to the location of packages not available on
 CRAN.
 
-The dashes denote the start and end of the yaml. The formatting with
-white space must be followed.
+The dashes denote the start and end of the yaml are optional. The
+formatting with white space must be followed.

@@ -21,7 +21,7 @@ chk_requirements <- function(path = system.file("default.yaml", package = "check
     outcome <- c(outcome, chk_rstudio(yam = yam$rstudio))
   }
 
-  if(!is.null(yam$r_version)) {
+  if(!is.null(yam$r)) {
     outcome <- c(outcome, chk_rversion(yam = yam$r_version))
   }
 

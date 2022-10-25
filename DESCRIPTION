@@ -17,5 +17,6 @@ Imports:
 Suggests: 
     rstudioapi,
     cli,
-    quarto
+    quarto,
+    glue
 RoxygenNote: 7.1.2
