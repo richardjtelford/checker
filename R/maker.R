@@ -8,6 +8,7 @@
 #' installed packages. A message is given if there are any unknown packages.
 #' options are checked against a curated list of RStudio options taken
 #' from `usethis:::rstudio_prefs_read()`.
+#' See also [https://docs.rstudio.com/ide/server-pro/session_user_settings/session_user_settings.html](https://docs.rstudio.com/ide/server-pro/session_user_settings/session_user_settings.html)
 #' A message is given if any are not recognised.
 #' @examples
 #' pak <- read.csv(
@@ -98,6 +99,7 @@ chk_sanity_packages <- function(packages) {
 
 chk_sanity_options <- function(options) {
   # edited from names(usethis:::rstudio_prefs_read())
+  # see also https://docs.rstudio.com/ide/server-pro/session_user_settings/session_user_settings.html
   available <- c(
     "show_margin", "soft_wrap_r_files", "save_workspace",
     "reuse_sessions_for_project_links", "jobs_tab_visibility",

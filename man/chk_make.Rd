@@ -19,13 +19,21 @@ chk_make(path, programs, packages, options)
 Make a yaml file with required packages etc
 }
 \details{
-programs are checked against names of programs known by checker. Unknown programs are ignored with a message. packages are checked against installed packages. A message is given if there are any unknown packages. options are checked against a curated list of RStudio options taken from `usethis:::rstudio_prefs_read()`. A message is given if any are not recognised.
+programs are checked against names of programs known by checker.
+Unknown programs are ignored with a message. packages are checked against
+installed packages. A message is given if there are any unknown packages.
+options are checked against a curated list of RStudio options taken
+from `usethis:::rstudio_prefs_read()`.
+See also [https://docs.rstudio.com/ide/server-pro/session_user_settings/session_user_settings.html](https://docs.rstudio.com/ide/server-pro/session_user_settings/session_user_settings.html)
+A message is given if any are not recognised.
 }
 \examples{
-pak <- read.csv(text = 'package, recommended, minimum, message
+pak <- read.csv(
+  text = "package, recommended, minimum, message
         dplyr, 1.0.9, NA, NA
-        ggplot2, 3.3.5, 3.3.1, NA',
-        strip.white = TRUE)
+        ggplot2, 3.3.5, 3.3.1, NA",
+  strip.white = TRUE
+)
 
 prog <- read.csv(text = 'program, recommended, minimum, message
              rstudio, 2022.7.1.554, NA, NA
