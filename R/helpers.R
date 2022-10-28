@@ -55,7 +55,7 @@ chk_rstudio_options <- function(yam) {
   }
   if (any(outcome == "warning")) {
     chk_cat(
-      message = "Please read chapter 2.4 of https://biostats-r.github.io/biostats/workingInR/0010_Getting_Started_with_RStudio.html#sec-customise-rstudio for how and why you can configure RStudio",
+      message = "Configuring the options in RStudio can make it easier and safer to use.",
       status = "info"
     )
   }
