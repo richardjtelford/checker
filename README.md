@@ -10,13 +10,23 @@
 
 One of the challenges with teaching R is that some students come to
 practicals with very old versions of R, or without critical packages
-installed. One solution is to use [rstudio.cloud](rstudio.cloud), where
-the instructor can control the versions of software and packages used.
+installed. There are several solutions to this:
+
+-   use [rstudio.cloud](rstudio.cloud), where the instructor can control
+    the versions of software and packages used
+-   have the class install a package that has all necessary packages for
+    the course as dependencies
+-   use the `renv` package to install packages listed in a lockfile
+
+One problem with these options is that they take control of package
+installation, rather than giving the student practice installing
+packages.
 
 The `checker` attempts to be an alternative solution. It checks whether
 the recommended (or more recent) versions of R, RStudio and packages, as
-specified in a yaml file, are installed. A sample yaml file is included
-in the installation. One can also be supplied with a URL or path.
+specified in a yaml file, are installed and that recommended RStudio
+options are set. A sample yaml file is included in the installation. One
+can also be supplied with a URL or path.
 
 ## Installation
 
@@ -36,7 +46,7 @@ run.
 ``` r
 library(checker)
 chk_requirements()
-#> → Date = 2022-10-25 18:55:37
+#> → Date = 2022-10-31 21:14:26
 #> → os = Ubuntu 18.04.6 LTS
 #> ✔ RStudio version 2022.7.1.554 is installed
 #> ✔ RStudio option 'save_workspace' set correctly
@@ -80,9 +90,19 @@ included in these data.frames.
       options:
         save_workspace:
           value: never
+          message: Menu tools > Global options > General
         load_workspace:
           value: FALSE
-          message: Set load workspace to FALSE to improve reproducibility
+          message: Set load workspace to FALSE to improve reproducibility. Menu tools > Global options > General
+        rainbow_parentheses:
+          value: TRUE
+          message: Rainbow parentheses make it easier to spot missing parentheses. Menu tools > Global options > Code > Display
+        soft_wrap_r_files:
+          value: TRUE
+          message: Soft wrap files so you don't need to scroll sideways. Menu tools > Global options > Code > Editing
+        insert_native_pipe_operator:
+          value: TRUE
+          message: Use the native pipe operator '|>'. Menu tools > Global options > Code > Editing
     quarto:
       recommended: 1.2.198
     git: NA
