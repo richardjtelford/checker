@@ -40,17 +40,17 @@ chk_rstudio_options <- function(yam) {
         status = "success"
       )
     } else {
-      if (!is.null(yam[[i]]$message)) {
-        outcome <- chk_cat(yam[[i]]$message, status = "warning")
-      } else {
-        outcome[i] <- chk_cat(
-          message = paste0(
-            "RStudio option '", names(yam)[i],
-            "' should be set to ", yam[[i]]$value
-          ),
-          status = "warning"
+      message <- yam[[i]]$message
+      if (is.null(message)) {
+        message <- paste0(
+          "RStudio option '", names(yam)[i],
+          "' should be set to ", yam[[i]]$value
         )
+      } else {
+        message <- paste0("Rstudio options: ", message)
       }
+
+      outcome[i] <- chk_cat(message, status = "warning")
     }
   }
   if (any(outcome == "warning")) {

@@ -12,7 +12,7 @@ rstudio:
   options:
     save_workspace:
       value: never
-      message: Menu tools > Global options > General
+      message: Improve reproducibility by never saving the workspace. Menu tools > Global options > General
     load_workspace:
       value: FALSE
       message: Set load workspace to FALSE to improve reproducibility. Menu tools > Global options > General
