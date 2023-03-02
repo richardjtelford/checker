@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/richardjtelford/checker/workflows/R-CMD-check/badge.svg)](https://github.com/richardjtelford/checker/actions)
+[![R-CMD-check](https://github.com/richardjtelford/checker/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/richardjtelford/checker/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 One of the challenges with teaching R is that some students come to
@@ -47,7 +47,7 @@ run.
 ``` r
 library(checker)
 chk_requirements()
-#> → Date = 2023-03-02 22:05:47
+#> → Date = 2023-03-02 22:15:39
 #> → os = Ubuntu 18.04.6 LTS
 #> ✔ RStudio version 2022.12.0.353 is installed
 #> ✔ RStudio option 'save_workspace' set correctly
