@@ -93,7 +93,7 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/richardjtelford/checker/" class="external-link">checker</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/chk_requirements.html">chk_requirements</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; → Date = 2023-03-02 22:15:39</span></span>
+<span><span class="co">#&gt; → Date = 2023-03-02 22:28:20</span></span>
 <span><span class="co">#&gt; → os = Ubuntu 18.04.6 LTS</span></span>
 <span><span class="co">#&gt; ✔ RStudio version 2022.12.0.353 is installed</span></span>
 <span><span class="co">#&gt; ✔ RStudio option 'save_workspace' set correctly</span></span>
@@ -166,7 +166,7 @@
 <li>packages</li>
 </ul>
 <p>All keys are optional. The first four take “recommended” and “minimum” to specify the recommended and minimum versions (if only one of “recommended” and “minimum” is set, they are treated in the same). If any version is acceptable, use NA.</p>
-<p>The rstudio key also accepts an options field, which takes the name with value set to the recommended value and an optional message. A list of Rstudio options can be found with <code>usethis:::rstudio_prefs_read()</code>.</p>
+<p>The “rstudio” key also accepts an options field, which takes the name with value set to the recommended value and an optional message. A list of RStudio options can be found with <code>usethis:::rstudio_prefs_read()</code>.</p>
 <p>The “packages” key has an element for each package installed. These take the same recommended” and “minimum” fields as above, and also a “message” field which is printed in the package is not installed (the “&gt;” lets the message span several lines). The message could be used to point to the location of packages not available on CRAN.</p>
 <p>The dashes denote the start and end of the yaml are optional. The formatting with white space must be followed.</p>
 </div>

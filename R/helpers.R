@@ -47,7 +47,7 @@ chk_rstudio_options <- function(yam) {
           "' should be set to ", yam[[i]]$value
         )
       } else {
-        message <- paste0("Rstudio options: ", message)
+        message <- paste0("RStudio options: ", message)
       }
 
       outcome[i] <- chk_cat(message, status = "warning")

@@ -47,7 +47,7 @@ run.
 ``` r
 library(checker)
 chk_requirements()
-#> → Date = 2023-03-02 22:15:39
+#> → Date = 2023-03-02 22:28:20
 #> → os = Ubuntu 18.04.6 LTS
 #> ✔ RStudio version 2022.12.0.353 is installed
 #> ✔ RStudio option 'save_workspace' set correctly
@@ -135,9 +135,9 @@ to specify the recommended and minimum versions (if only one of
 “recommended” and “minimum” is set, they are treated in the same). If
 any version is acceptable, use NA.
 
-The rstudio key also accepts an options field, which takes the name with
-value set to the recommended value and an optional message. A list of
-Rstudio options can be found with `usethis:::rstudio_prefs_read()`.
+The “rstudio” key also accepts an options field, which takes the name
+with value set to the recommended value and an optional message. A list
+of RStudio options can be found with `usethis:::rstudio_prefs_read()`.
 
 The “packages” key has an element for each package installed. These take
 the same recommended” and “minimum” fields as above, and also a
