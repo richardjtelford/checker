@@ -3,10 +3,12 @@ Type: Package
 Title: Checks R Configuration Setup Correctly Before Class
 Version: 0.1.0
 Authors@R: 
-  person("Richard J.", "Telford", email = "richard.telford@uib.no", role = c("aut", "cre"), 
+  person("Richard J.", "Telford", email = "richard.telford@uib.no",
+        role = c("aut", "cre"), 
         comment = c(ORCID = "https://orcid.org/0000-0001-9826-3076"))
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: Checks that students have the correct version of R, R packages,
+    RStudio and other dependancies installed, and that the recommended RStudio 
+    configuration has been applied.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
