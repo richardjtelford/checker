@@ -12,8 +12,9 @@ One of the challenges with teaching R is that some students come to
 practicals with very old versions of R, or without critical packages
 installed. There are several solutions to this:
 
-- use [rstudio.cloud](rstudio.cloud), where the instructor can control
-  the versions of software and packages used
+- use [posit cloud](https://posit.cloud/) (formerly RStudio cloud),
+  where the instructor can control the versions of software and packages
+  used
 - have the class install a package that has all necessary packages for
   the course as dependencies
 - use the `renv` package to install packages listed in a lockfile
@@ -47,7 +48,7 @@ run.
 ``` r
 library(checker)
 chk_requirements()
-#> → Date = 2023-03-02 22:28:20
+#> → Date = 2023-03-02 22:56:55
 #> → os = Ubuntu 18.04.6 LTS
 #> ✔ RStudio version 2022.12.0.353 is installed
 #> ✔ RStudio option 'save_workspace' set correctly

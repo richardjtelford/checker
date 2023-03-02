@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 One of the challenges with teaching R is that some students come to practicals with very old versions of R, or without critical packages installed.
 There are several solutions to this:
 
-- use [rstudio.cloud](rstudio.cloud), where the instructor can control the versions of software and packages used
+- use [posit cloud](https://posit.cloud/) (formerly RStudio cloud), where the instructor can control the versions of software and packages used
 - have the class install a package that has all necessary packages for the course as dependencies
 - use the `renv` package to install packages listed in a lockfile
 - use a [rocker container](https://rocker-project.org/)
