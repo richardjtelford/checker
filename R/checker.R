@@ -7,7 +7,9 @@
 #'
 #' @export
 
-chk_requirements <- function(path = system.file("default.yaml", package = "checker")) {
+chk_requirements <- function(
+    path = system.file("default.yaml", package = "checker")
+    ) {
   outcome <- character()
   yam <- read_yaml(file = path)
   names(yam) <- tolower(names(yam))
