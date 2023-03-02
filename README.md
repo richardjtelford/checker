@@ -12,11 +12,12 @@ One of the challenges with teaching R is that some students come to
 practicals with very old versions of R, or without critical packages
 installed. There are several solutions to this:
 
--   use [rstudio.cloud](rstudio.cloud), where the instructor can control
-    the versions of software and packages used
--   have the class install a package that has all necessary packages for
-    the course as dependencies
--   use the `renv` package to install packages listed in a lockfile
+- use [rstudio.cloud](rstudio.cloud), where the instructor can control
+  the versions of software and packages used
+- have the class install a package that has all necessary packages for
+  the course as dependencies
+- use the `renv` package to install packages listed in a lockfile
+- use a [rocker container](https://rocker-project.org/)
 
 One problem with these options is that they take control of package
 installation, rather than giving the student practice installing
@@ -46,17 +47,20 @@ run.
 ``` r
 library(checker)
 chk_requirements()
-#> → Date = 2022-10-31 21:14:26
+#> → Date = 2023-03-02 22:05:47
 #> → os = Ubuntu 18.04.6 LTS
-#> ✔ RStudio version 2022.7.1.554 is installed
+#> ✔ RStudio version 2022.12.0.353 is installed
 #> ✔ RStudio option 'save_workspace' set correctly
 #> ✔ RStudio option 'load_workspace' set correctly
-#> ✔ R version 4.2.1 is installed
-#> ✔ quarto version 1.2.198 is installed
-#> ✔ git is installed
-#> ✔ tidyverse version 1.3.1 is installed
-#> ✔ Package here is installed
-#> ✔ Package quarto is installed
+#> ✔ RStudio option 'rainbow_parentheses' set correctly
+#> ✔ RStudio option 'soft_wrap_r_files' set correctly
+#> ✔ RStudio option 'insert_native_pipe_operator' set correctly
+#> ✔ R version 4.2.2 is installed
+#> ✔ quarto version 1.2.313 is installed
+#> ✔ git version 2.17.1 is installed
+#> ✔ tidyverse version 1.3.2 is installed
+#> ✔ here version 1.0.1 is installed
+#> ✔ quarto version 1.2 is installed
 #> ✔ Everything appears to be installed correctly
 ```
 
@@ -90,19 +94,29 @@ included in these data.frames.
       options:
         save_workspace:
           value: never
-          message: Menu tools > Global options > General
+          message: >
+            Improve reproducibility by never saving the workspace.
+            Menu tools > Global options > General
         load_workspace:
           value: FALSE
-          message: Set load workspace to FALSE to improve reproducibility. Menu tools > Global options > General
+          message: >
+            Set load workspace to FALSE to improve reproducibility.
+            Menu tools > Global options > General
         rainbow_parentheses:
           value: TRUE
-          message: Rainbow parentheses make it easier to spot missing parentheses. Menu tools > Global options > Code > Display
+          message: >
+            Rainbow parentheses make it easier to spot missing parentheses.
+            Menu tools > Global options > Code > Display
         soft_wrap_r_files:
           value: TRUE
-          message: Soft wrap files so you don't need to scroll sideways. Menu tools > Global options > Code > Editing
+          message: >
+            Soft wrap files so you do not need to scroll sideways.
+            Menu tools > Global options > Code > Editing
         insert_native_pipe_operator:
           value: TRUE
-          message: Use the native pipe operator '|>'. Menu tools > Global options > Code > Editing
+          message: >
+            Use the native pipe operator '|>'.
+            Menu tools > Global options > Code > Editing
     quarto:
       recommended: 1.2.198
     git: NA
@@ -110,11 +124,11 @@ included in these data.frames.
 
 The accepted keys are
 
--   r_version
--   rstudio
--   quarto
--   git
--   packages
+- r_version
+- rstudio
+- quarto
+- git
+- packages
 
 All keys are optional. The first four take “recommended” and “minimum”
 to specify the recommended and minimum versions (if only one of
@@ -127,9 +141,9 @@ Rstudio options can be found with `usethis:::rstudio_prefs_read()`.
 
 The “packages” key has an element for each package installed. These take
 the same recommended” and “minimum” fields as above, and also a
-“message” field which is printed in the package is not installed. This
-could be used to point to the location of packages not available on
-CRAN.
+“message” field which is printed in the package is not installed (the
+“\>” lets the message span several lines). The message could be used to
+point to the location of packages not available on CRAN.
 
 The dashes denote the start and end of the yaml are optional. The
 formatting with white space must be followed.

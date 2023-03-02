@@ -25,6 +25,7 @@ There are several solutions to this:
 - use [rstudio.cloud](rstudio.cloud), where the instructor can control the versions of software and packages used
 - have the class install a package that has all necessary packages for the course as dependencies
 - use the `renv` package to install packages listed in a lockfile
+- use a [rocker container](https://rocker-project.org/)
 
 One problem with these options is that they take control of package installation, rather than giving the student practice installing packages.
 
@@ -61,7 +62,7 @@ chk_requirements(path = url("https://raw.githubusercontent.com/richardjtelford/c
 
 ## The yaml file
 
-Below is the yaml file included in the installation. It can be edited to meet your requirements by hand or with the function `chk_make()` which takes   data.frames of  recommended programs, packages, and RStudio options as arguments. Recommended and/or minimum version and any message can be included in these data.frames.
+Below is the yaml file included in the installation. It can be edited to meet your requirements by hand or with the function `chk_make()` which takes data.frames of recommended programs, packages, and RStudio options as arguments. Recommended and/or minimum version and any message can be included in these data.frames.
 
 
 
@@ -84,7 +85,6 @@ The first four take "recommended" and "minimum" to specify the recommended and m
 
 The rstudio key also accepts an options field, which takes the name with value set to the recommended value and an optional message. A list of Rstudio options can be found with `usethis:::rstudio_prefs_read()`.
 
-The "packages" key has an element for each package installed. These take the same recommended" and "minimum" fields as above, and also a "message" field which is printed in the package is not installed. This could be used to point to the location of packages not available on CRAN.
-
+The "packages" key has an element for each package installed. These take the same recommended" and "minimum" fields as above, and also a "message" field which is printed in the package is not installed (the ">" lets the message span several lines). The message could be used to point to the location of packages not available on CRAN.
 
 The dashes denote the start and end of the yaml are optional. The formatting with white space must be followed.
