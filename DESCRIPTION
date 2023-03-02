@@ -7,7 +7,7 @@ Authors@R:
         role = c("aut", "cre"), 
         comment = c(ORCID = "https://orcid.org/0000-0001-9826-3076"))
 Description: Checks that students have the correct version of R, R packages,
-    RStudio and other dependancies installed, and that the recommended RStudio 
+    RStudio and other dependencies installed, and that the recommended RStudio 
     configuration has been applied.
 License: MIT + file LICENSE
 Encoding: UTF-8
