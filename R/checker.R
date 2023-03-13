@@ -19,6 +19,9 @@
 #' argument which can be on the users computer or at a URL.
 #' If not set, the function defaults to using a built-in yaml file, which may
 #' not require the latest version.
+#'
+#' @examples
+#' chk_requirements()
 
 #' @importFrom yaml read_yaml
 #' @importFrom utils compareVersion osVersion packageVersion
@@ -78,7 +81,7 @@ chk_requirements <- function(
 
 
 chk_rstudio <- function(yam) {
-  if (!requireNamespace("rstudioapi", quietly = TRUE)) {
+  if (!rstudioapi::isAvailable()) {
     outcome <- chk_cat("Are you using RStudio?", status = "danger")
   } else {
     rstudio_version <- rstudioapi::versionInfo()$version
@@ -89,7 +92,7 @@ chk_rstudio <- function(yam) {
       version = rstudio_version
     )
   }
-  if (!is.null(yam$options)) {
+  if (!is.null(yam$options) & rstudioapi::isAvailable()) {
     outcome <- c(outcome, chk_rstudio_options(yam = yam$options))
   }
   outcome
