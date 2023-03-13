@@ -112,7 +112,7 @@ chk_sanity_options <- function(options) {
   chk_sanity(
     actual = options$options,
     expected = available,
-    message = "Rstudio options {unknown} are not recognised."
+    message = "RStudio options {unknown} are not recognised."
   )
 }
 
