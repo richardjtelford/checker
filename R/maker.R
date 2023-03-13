@@ -1,14 +1,14 @@
-#' Make a yaml file with required packages etc
+#' Makes a yaml file with required packages etc
 #' @param path File name and path. If missing will print to screen.
 #' @param programs data.frame of required programs.
 #' @param packages data.frame of required packages
 #' @param options data.frame of recommended RStudio options
-#' @details programs are checked against names of programs known by checker.
+#' @details Programs are checked against names of programs known by checker.
 #' Unknown programs are ignored with a message. packages are checked against
 #' installed packages. A message is given if there are any unknown packages.
 #' options are checked against a curated list of RStudio options taken
 #' from `usethis:::rstudio_prefs_read()`.
-#' See also [https://docs.rstudio.com/ide/server-pro/session_user_settings/session_user_settings.html](https://docs.rstudio.com/ide/server-pro/session_user_settings/session_user_settings.html)
+#' See also [https://docs.rstudio.com/ide/server-pro/session_user_settings/session_user_settings.html](https://docs.rstudio.com/ide/server-pro/session_user_settings/session_user_settings.html).
 #' A message is given if any are not recognised.
 #' @examples
 #' pak <- read.csv(
