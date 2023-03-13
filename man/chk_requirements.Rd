@@ -2,13 +2,30 @@
 % Please edit documentation in R/checker.R
 \name{chk_requirements}
 \alias{chk_requirements}
-\title{Check R setup before a class}
+\title{Check R set up before a class}
 \usage{
 chk_requirements(path = system.file("default.yaml", package = "checker"))
 }
 \arguments{
-\item{path}{path to yaml file}
+\item{path}{path to yaml file.
+Defaults to a file that comes with the package.}
 }
 \description{
-Check R setup before a class
+Checks that the required versions of R, RStudio, R packages
+and other dependencies are installed.
+}
+\details{
+`chk_requirements()` checks that the computer set up before class.
+It check
+- R version
+- RStudio version
+- RStudio options
+- R packages are installed (with version if necessary)
+- git version
+- quarto version
+
+These requirements are specified in a yaml file specified by the `path`
+argument which can be on the users computer or at a URL.
+If not set, the function defaults to using a built-in yaml file, which may
+not require the latest version.
 }
