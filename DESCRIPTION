@@ -1,6 +1,6 @@
 Package: checker
 Type: Package
-Title: Checks R Configuration Setup Correctly Before Class
+Title: Checks R Configuration Set Up Correctly Before Class
 Version: 0.1.0
 Authors@R: 
   person("Richard J.", "Telford", email = "richard.telford@uib.no",
