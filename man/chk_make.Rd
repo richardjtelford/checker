@@ -24,7 +24,7 @@ Unknown programs are ignored with a message. packages are checked against
 installed packages. A message is given if there are any unknown packages.
 options are checked against a curated list of RStudio options taken
 from \code{usethis:::rstudio_prefs_read()}.
-See also \url{https://docs.rstudio.com/ide/server-pro/session_user_settings/session_user_settings.html}.
+See also \url{https://docs.posit.co/ide/server-pro/session_user_settings/session_user_settings.html}.
 A message is given if any are not recognised.
 }
 \examples{
