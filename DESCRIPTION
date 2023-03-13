@@ -22,3 +22,4 @@ Suggests:
     quarto,
     glue
 RoxygenNote: 7.2.3
+Roxygen: list(markdown = TRUE)
