@@ -30,7 +30,7 @@
 
 chk_requirements <- function(
     path = system.file("default.yaml", package = "checker")
-    ) {
+  ) {
   outcome <- character()
   yam <- read_yaml(file = path)
   names(yam) <- tolower(names(yam))
@@ -92,7 +92,7 @@ chk_rstudio <- function(yam) {
       version = rstudio_version
     )
   }
-  if (!is.null(yam$options) & rstudioapi::isAvailable()) {
+  if (!is.null(yam$options) && rstudioapi::isAvailable()) {
     outcome <- c(outcome, chk_rstudio_options(yam = yam$options))
   }
   outcome
