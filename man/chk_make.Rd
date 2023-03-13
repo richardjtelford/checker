@@ -2,7 +2,7 @@
 % Please edit documentation in R/maker.R
 \name{chk_make}
 \alias{chk_make}
-\title{Make a yaml file with required packages etc}
+\title{Makes a yaml file with required packages etc}
 \usage{
 chk_make(path, programs, packages, options)
 }
@@ -16,15 +16,15 @@ chk_make(path, programs, packages, options)
 \item{options}{data.frame of recommended RStudio options}
 }
 \description{
-Make a yaml file with required packages etc
+Makes a yaml file with required packages etc
 }
 \details{
-programs are checked against names of programs known by checker.
+Programs are checked against names of programs known by checker.
 Unknown programs are ignored with a message. packages are checked against
 installed packages. A message is given if there are any unknown packages.
 options are checked against a curated list of RStudio options taken
-from `usethis:::rstudio_prefs_read()`.
-See also [https://docs.rstudio.com/ide/server-pro/session_user_settings/session_user_settings.html](https://docs.rstudio.com/ide/server-pro/session_user_settings/session_user_settings.html)
+from \code{usethis:::rstudio_prefs_read()}.
+See also \url{https://docs.rstudio.com/ide/server-pro/session_user_settings/session_user_settings.html}.
 A message is given if any are not recognised.
 }
 \examples{

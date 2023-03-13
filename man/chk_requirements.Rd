@@ -15,17 +15,22 @@ Checks that the required versions of R, RStudio, R packages
 and other dependencies are installed.
 }
 \details{
-`chk_requirements()` checks that the computer set up before class.
+\code{chk_requirements()} checks that the computer set up before class.
 It check
-- R version
-- RStudio version
-- RStudio options
-- R packages are installed (with version if necessary)
-- git version
-- quarto version
+\itemize{
+\item R version
+\item RStudio version
+\item RStudio options
+\item R packages are installed (with version if necessary)
+\item git version
+\item quarto version
+}
 
-These requirements are specified in a yaml file specified by the `path`
+These requirements are specified in a yaml file specified by the \code{path}
 argument which can be on the users computer or at a URL.
 If not set, the function defaults to using a built-in yaml file, which may
 not require the latest version.
+}
+\examples{
+chk_requirements()
 }
