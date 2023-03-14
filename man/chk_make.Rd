@@ -15,6 +15,10 @@ chk_make(path, programs, packages, options)
 
 \item{options}{data.frame of recommended RStudio options}
 }
+\value{
+Returns a the yaml, invisibly, as a character vector.
+Main purpose is to write the yaml to a file.
+}
 \description{
 Makes a yaml file with required packages etc
 }
@@ -36,7 +40,7 @@ pak <- read.csv(
 )
 
 prog <- read.csv(text = 'program, recommended, minimum, message
-             rstudio, 2022.7.1.554, NA, NA
+             rstudio, 2022.12.0.353, NA, NA
              R, "4.2.1", "4.1.1", NA
              git, NA, NA, NA',
              strip.white = TRUE)

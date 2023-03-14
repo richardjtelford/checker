@@ -19,6 +19,7 @@
 #' argument which can be on the users computer or at a URL.
 #' If not set, the function defaults to using a built-in yaml file, which may
 #' not require the latest version.
+#' @return No return value, output is printed
 #'
 #' @examples
 #' chk_requirements()
@@ -124,7 +125,7 @@ chk_git <- function(yam) {
 
 
 chk_package <- function(yam) {
-  if (!requireNamespace(names(yam), quietly = TRUE)) {
+  if (!names(yam) %in% rownames(installed.packages())) {
     if (is.null(yam[[1]]$message)) {
       message <- paste("Please install package", names(yam))
     } else {
@@ -150,7 +151,7 @@ chk_package <- function(yam) {
 }
 
 chk_quarto <- function(yam) {
-  if (!requireNamespace("quarto", quietly = TRUE)) {
+  if (!"quarto" %in% rownames(installed.packages())) {
     outcome <- chk_cat(
       message = "Please install quarto R package",
       status = "danger"

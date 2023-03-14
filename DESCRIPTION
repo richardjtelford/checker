@@ -1,7 +1,7 @@
 Package: checker
 Type: Package
 Title: Checks R Configuration Set Up Correctly Before Class
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
   person("Richard J.", "Telford", email = "richard.telford@uib.no",
         role = c("aut", "cre"), 
@@ -15,10 +15,10 @@ LazyData: true
 URL: https://github.com/richardjtelford/checker/
 BugReports: https://github.com/richardjtelford/checker/issues
 Imports: 
-    yaml
-Suggests: 
+    yaml,
     rstudioapi,
-    cli,
+    cli
+Suggests: 
     quarto,
     glue
 RoxygenNote: 7.2.3

@@ -10,6 +10,8 @@
 #' from `usethis:::rstudio_prefs_read()`.
 #' See also [https://docs.posit.co/ide/server-pro/session_user_settings/session_user_settings.html](https://docs.posit.co/ide/server-pro/session_user_settings/session_user_settings.html).
 #' A message is given if any are not recognised.
+#' @return Returns a the yaml, invisibly, as a character vector.
+#' Main purpose is to write the yaml to a file.
 #' @examples
 #' pak <- read.csv(
 #'   text = "package, recommended, minimum, message
@@ -20,7 +22,7 @@
 #'
 
 #' prog <- read.csv(text = 'program, recommended, minimum, message
-#'              rstudio, 2022.7.1.554, NA, NA
+#'              rstudio, 2022.12.0.353, NA, NA
 #'              R, "4.2.1", "4.1.1", NA
 #'              git, NA, NA, NA',
 #'              strip.white = TRUE)

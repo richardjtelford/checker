@@ -10,6 +10,9 @@ chk_requirements(path = system.file("default.yaml", package = "checker"))
 \item{path}{path to yaml file.
 Defaults to a file that comes with the package.}
 }
+\value{
+No return value, output is printed
+}
 \description{
 Checks that the required versions of R, RStudio, R packages
 and other dependencies are installed.
