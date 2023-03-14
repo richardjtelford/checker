@@ -1,6 +1,6 @@
 ---
 R:
-  recommended: 4.2.1
+  recommended: 4.2.2
   minimum: 4.1.0
 packages:
   tidyverse:
@@ -8,7 +8,7 @@ packages:
   here: NA
   quarto: NA
 rstudio:
-  recommended: 2022.07.1
+  recommended: 2022.12.0
   options:
     save_workspace:
       value: never
