@@ -2,4 +2,5 @@
 
 0 errors | 0 warnings | 0 note
 
-* adds \value elements to Rd files
+* quotes R, RStudio
+* removes installed.packages()

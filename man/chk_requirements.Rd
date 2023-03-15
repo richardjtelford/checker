@@ -14,19 +14,19 @@ Defaults to a file that comes with the package.}
 No return value, output is printed
 }
 \description{
-Checks that the required versions of R, RStudio, R packages
+Checks that the required versions of 'R', 'RStudio', 'R' packages
 and other dependencies are installed.
 }
 \details{
 \code{chk_requirements()} checks that the computer set up before class.
 It check
 \itemize{
-\item R version
-\item RStudio version
-\item RStudio options
-\item R packages are installed (with version if necessary)
-\item git version
-\item quarto version
+\item 'R' version
+\item 'RStudio' version
+\item 'RStudio' options
+\item 'R' packages are installed (with version if necessary)
+\item 'git' version
+\item 'quarto' version
 }
 
 These requirements are specified in a yaml file specified by the \code{path}

@@ -1,6 +1,6 @@
 #' Check R set up before a class
 #'
-#' @description Checks that the required versions of R, RStudio, R packages
+#' @description Checks that the required versions of 'R', 'RStudio', 'R' packages
 #' and other dependencies are installed.
 #'
 #' @param path path to yaml file.
@@ -8,12 +8,12 @@
 #'
 #' @details `chk_requirements()` checks that the computer set up before class.
 #' It check
-#' - R version
-#' - RStudio version
-#' - RStudio options
-#' - R packages are installed (with version if necessary)
-#' - git version
-#' - quarto version
+#' - 'R' version
+#' - 'RStudio' version
+#' - 'RStudio' options
+#' - 'R' packages are installed (with version if necessary)
+#' - 'git' version
+#' - 'quarto' version
 #'
 #' These requirements are specified in a yaml file specified by the `path`
 #' argument which can be on the users computer or at a URL.
@@ -125,7 +125,7 @@ chk_git <- function(yam) {
 
 
 chk_package <- function(yam) {
-  if (!names(yam) %in% rownames(installed.packages())) {
+  if (!requireNamespace(names(yam), quietly = TRUE)) {
     if (is.null(yam[[1]]$message)) {
       message <- paste("Please install package", names(yam))
     } else {
@@ -151,7 +151,7 @@ chk_package <- function(yam) {
 }
 
 chk_quarto <- function(yam) {
-  if (!"quarto" %in% rownames(installed.packages())) {
+  if (!requireNamespace("quarto", quietly = TRUE)) {
     outcome <- chk_cat(
       message = "Please install quarto R package",
       status = "danger"
