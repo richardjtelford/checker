@@ -6,6 +6,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/richardjtelford/checker/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/richardjtelford/checker/actions/workflows/R-CMD-check.yaml)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/checker)](https://CRAN.R-project.org/package=checker)
 <!-- badges: end -->
 
 One of the challenges with teaching R is that some students come to
@@ -48,21 +50,16 @@ run.
 ``` r
 library(checker)
 chk_requirements()
-#> → Date = 2023-03-02 22:56:55
+#> → Date = 2023-03-15 16:28:14
 #> → os = Ubuntu 18.04.6 LTS
-#> ✔ RStudio version 2022.12.0.353 is installed
-#> ✔ RStudio option 'save_workspace' set correctly
-#> ✔ RStudio option 'load_workspace' set correctly
-#> ✔ RStudio option 'rainbow_parentheses' set correctly
-#> ✔ RStudio option 'soft_wrap_r_files' set correctly
-#> ✔ RStudio option 'insert_native_pipe_operator' set correctly
+#> ✖ Are you using RStudio?
 #> ✔ R version 4.2.2 is installed
-#> ✔ quarto version 1.2.313 is installed
+#> ✔ quarto version 1.3.262 is installed
 #> ✔ git version 2.17.1 is installed
-#> ✔ tidyverse version 1.3.2 is installed
+#> ✔ tidyverse version 2.0.0 is installed
 #> ✔ here version 1.0.1 is installed
 #> ✔ quarto version 1.2 is installed
-#> ✔ Everything appears to be installed correctly
+#> ✖ You have some issues that need addressing
 ```
 
 By default, `chk_requirements()` uses a yaml file included in the
@@ -83,15 +80,15 @@ included in these data.frames.
 
     ---
     R:
-      recommended: 4.2.1
+      recommended: 4.2.2
       minimum: 4.1.0
     packages:
       tidyverse:
-        recommended: 1.3.1
+        recommended: 2.0.0
       here: NA
       quarto: NA
     rstudio:
-      recommended: 2022.07.1
+      recommended: 2022.12.0
       options:
         save_workspace:
           value: never

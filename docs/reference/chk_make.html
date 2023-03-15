@@ -17,13 +17,16 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">checker</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.1</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav"><li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/richardjtelford/checker/" class="external-link">
@@ -68,15 +71,22 @@
 
 
 <dt>options</dt>
-<dd><p>data.frame of recommended RStudio options</p></dd>
+<dd><p>data.frame of recommended 'RStudio' options</p></dd>
 
 </dl></div>
+    <div id="value">
+    <h2>Value</h2>
+    
+
+<p>Returns a the yaml, invisibly, as a character vector.
+Main purpose is to write the yaml to a file.</p>
+    </div>
     <div id="details">
     <h2>Details</h2>
     <p>Programs are checked against names of programs known by checker.
 Unknown programs are ignored with a message. packages are checked against
 installed packages. A message is given if there are any unknown packages.
-options are checked against a curated list of RStudio options taken
+options are checked against a curated list of 'RStudio' options taken
 from <code>usethis:::rstudio_prefs_read()</code>.
 See also <a href="https://docs.posit.co/ide/server-pro/session_user_settings/session_user_settings.html" class="external-link">https://docs.posit.co/ide/server-pro/session_user_settings/session_user_settings.html</a>.
 A message is given if any are not recognised.</p>
@@ -92,8 +102,8 @@ A message is given if any are not recognised.</p>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">prog</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">'program, recommended, minimum, message</span></span></span>
-<span class="r-in"><span><span class="st">             rstudio, 2022.7.1.554, NA, NA</span></span></span>
-<span class="r-in"><span><span class="st">             R, "4.2.1", "4.1.1", NA</span></span></span>
+<span class="r-in"><span><span class="st">             rstudio, 2022.12.0.353, NA, NA</span></span></span>
+<span class="r-in"><span><span class="st">             R, "4.2.2", "4.1.1", NA</span></span></span>
 <span class="r-in"><span><span class="st">             git, NA, NA, NA'</span>,</span></span>
 <span class="r-in"><span>             strip.white <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">opt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">'option, value, message</span></span></span>
@@ -103,7 +113,7 @@ A message is given if any are not recognised.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">f</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span>fileext <span class="op">=</span> <span class="st">".yaml"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">(</span><span class="fu">chk_make</span><span class="op">(</span>path <span class="op">=</span> <span class="va">f</span>, programs <span class="op">=</span> <span class="va">prog</span>, packages <span class="op">=</span> <span class="va">pak</span>, options <span class="op">=</span> <span class="va">opt</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "rstudio:\n  recommended: 2022.7.1.554\n  options:\n    save_workspace:\n      value: never\n    load_workspace:\n      value: 'FALSE'\n      message: For reproducibility\nR:\n  recommended: 4.2.1\n  minimum: 4.1.1\ngit: NA\ndplyr:\n  recommended: 1.0.9\nggplot2:\n  recommended: 3.3.5\n  minimum: 3.3.1\n"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "rstudio:\n  recommended: 2022.12.0.353\n  options:\n    save_workspace:\n      value: never\n    load_workspace:\n      value: 'FALSE'\n      message: For reproducibility\nR:\n  recommended: 4.2.2\n  minimum: 4.1.1\ngit: NA\ndplyr:\n  recommended: 1.0.9\nggplot2:\n  recommended: 3.3.5\n  minimum: 3.3.1\n"</span>
 <span class="r-in"><span><span class="co">#chk_requirements(f)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></span>
 </code></pre></div>
