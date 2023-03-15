@@ -38,7 +38,6 @@
 #' unlink(f)
 #' @importFrom stats setNames
 #' @importFrom yaml as.yaml
-#' @importFrom utils installed.packages
 #' @export
 
 chk_make <- function(path, programs, packages, options) {
