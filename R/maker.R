@@ -50,7 +50,8 @@ chk_make <- function(path, programs, packages, options) {
   if (!missing(options)) {
     chk_sanity_options(options)
   }
-  lst <- c(chk_df_list(programs), chk_df_list(packages))
+  lst <- chk_df_list(programs)
+  lst$packages <- chk_df_list(packages)
   if (!missing(options)) {
     lst$rstudio$options <- chk_df_list(options)
   }
