@@ -50,12 +50,13 @@ run.
 ``` r
 library(checker)
 chk_requirements()
-#> → Date = 2023-03-15 16:28:14
+#> → Date = 2023-04-26 14:06:33.580533
 #> → os = Ubuntu 18.04.6 LTS
 #> ✖ Are you using RStudio?
-#> ✔ R version 4.2.2 is installed
+#> ✔ R version 4.3.0 is installed
 #> ✔ quarto version 1.3.262 is installed
 #> ✔ git version 2.17.1 is installed
+#> → Checking R packages
 #> ✔ tidyverse version 2.0.0 is installed
 #> ✔ here version 1.0.1 is installed
 #> ✔ quarto version 1.2 is installed
@@ -80,15 +81,15 @@ included in these data.frames.
 
     ---
     R:
-      recommended: 4.2.2
-      minimum: 4.1.0
+      recommended: 4.3.0
+      minimum: 4.2.0
     packages:
       tidyverse:
         recommended: 2.0.0
       here: NA
       quarto: NA
     rstudio:
-      recommended: 2022.12.0
+      recommended: 2023.03.0
       options:
         save_workspace:
           value: never
@@ -116,7 +117,7 @@ included in these data.frames.
             Use the native pipe operator '|>'.
             Menu tools > Global options > Code > Editing
     quarto:
-      recommended: 1.2.198
+      recommended: 1.3.262
     git: NA
     ---
 
