@@ -58,6 +58,7 @@ chk_requirements <- function(
   }
 
   if (!is.null(yam$packages)) {
+    chk_cat("Checking R packages")
     yam$packages <- lapply(yam$packages, as.list)
     out <- character(length(yam$packages))
     for (i in seq_along(yam$packages)) {
