@@ -1,7 +1,7 @@
 Package: checker
 Type: Package
 Title: Checks 'R' Configuration Set Up Correctly Before Class
-Version: 0.1.2
+Version: 0.1.3
 Authors@R: 
   person("Richard J.", "Telford", email = "richard.telford@uib.no",
         role = c("aut", "cre"), 

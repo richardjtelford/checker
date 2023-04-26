@@ -1,3 +1,8 @@
+# checker 0.1.3
+
+* bugfix chk_make()
+* bump versions in yaml
+
 # checker 0.1.2
 
 * CRAN fixes
