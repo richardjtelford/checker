@@ -1,14 +1,14 @@
 ---
 R:
-  recommended: 4.2.2
-  minimum: 4.1.0
+  recommended: 4.3.0
+  minimum: 4.2.0
 packages:
   tidyverse:
     recommended: 2.0.0
   here: NA
   quarto: NA
 rstudio:
-  recommended: 2022.12.0
+  recommended: 2023.03.0
   options:
     save_workspace:
       value: never
@@ -36,6 +36,6 @@ rstudio:
         Use the native pipe operator '|>'.
         Menu tools > Global options > Code > Editing
 quarto:
-  recommended: 1.2.198
+  recommended: 1.3.262
 git: NA
 ---
