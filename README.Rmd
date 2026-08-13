@@ -37,7 +37,13 @@ One can also be supplied with a URL or path.
 
 ## Installation
 
-You can install the development version of `checker` from [GitHub](https://github.com/) with:
+You can install `checker` with:
+
+``` r
+install.packages("checker")
+```
+
+The development version of `checker` from [GitHub](https://github.com/richardjtelford/checker) with:
 
 ``` r
 # install.packages("remotes")
@@ -75,7 +81,7 @@ readLines("inst/default.yaml") |> writeLines()
 
 The accepted keys are
 
-- r_version
+- R
 - rstudio
 - quarto
 - git

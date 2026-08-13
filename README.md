@@ -34,8 +34,14 @@ can also be supplied with a URL or path.
 
 ## Installation
 
-You can install the development version of `checker` from
-[GitHub](https://github.com/) with:
+You can install `checker` with:
+
+``` r
+install.packages("checker")
+```
+
+The development version of `checker` from
+[GitHub](https://github.com/richardjtelford/checker) with:
 
 ``` r
 # install.packages("remotes")
@@ -50,16 +56,16 @@ run.
 ``` r
 library(checker)
 chk_requirements()
-#> → Date = 2023-04-26 14:06:33.580533
-#> → os = Ubuntu 18.04.6 LTS
+#> → Date = 2026-08-13 18:38:27.735653
+#> → os = Ubuntu 24.04.4 LTS
 #> ✖ Are you using RStudio?
-#> ✔ R version 4.3.0 is installed
-#> ✔ quarto version 1.3.262 is installed
-#> ✔ git version 2.17.1 is installed
+#> ✔ R version 4.6.1 is installed
+#> ✔ quarto version 1.10.18 is installed
+#> ✔ git version 2.43.0 is installed
 #> → Checking R packages
 #> ✔ tidyverse version 2.0.0 is installed
-#> ✔ here version 1.0.1 is installed
-#> ✔ quarto version 1.2 is installed
+#> ✖ Please install package here
+#> ✔ quarto version 1.5.1 is installed
 #> ✖ You have some issues that need addressing
 ```
 
@@ -123,7 +129,7 @@ included in these data.frames.
 
 The accepted keys are
 
-- r_version
+- R
 - rstudio
 - quarto
 - git

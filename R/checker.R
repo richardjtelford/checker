@@ -46,7 +46,7 @@ chk_requirements <- function(
   }
 
   if (!is.null(yam$r)) {
-    outcome <- c(outcome, chk_rversion(yam = yam$r_version))
+    outcome <- c(outcome, chk_rversion(yam = yam$r))
   }
 
   if (!is.null(yam$quarto)) {
