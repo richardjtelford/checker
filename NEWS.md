@@ -1,3 +1,7 @@
+# checker 0.1.5
+
+* No code changes - usethis workflow change
+
 # checker 0.1.4
 
 * Bugfix where R version was ignored
