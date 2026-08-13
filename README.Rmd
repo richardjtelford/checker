@@ -46,8 +46,8 @@ install.packages("checker")
 The development version of `checker` from [GitHub](https://github.com/richardjtelford/checker) with:
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("richardjtelford/checker")
+# install.packages("pak") # install if needed
+pak::pak("richardjtelford/checker")
 ```
 
 ## Usage

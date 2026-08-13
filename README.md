@@ -44,8 +44,8 @@ The development version of `checker` from
 [GitHub](https://github.com/richardjtelford/checker) with:
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("richardjtelford/checker")
+# install.packages("pak") # install if needed
+pak::pak("richardjtelford/checker")
 ```
 
 ## Usage
@@ -56,7 +56,7 @@ run.
 ``` r
 library(checker)
 chk_requirements()
-#> → Date = 2026-08-13 18:38:27.735653
+#> → Date = 2026-08-13 18:41:07.765332
 #> → os = Ubuntu 24.04.4 LTS
 #> ✖ Are you using RStudio?
 #> ✔ R version 4.6.1 is installed
