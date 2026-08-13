@@ -56,7 +56,7 @@ run.
 ``` r
 library(checker)
 chk_requirements()
-#> → Date = 2026-08-13 18:41:07.765332
+#> → Date = 2026-08-13 19:22:25.256112
 #> → os = Ubuntu 24.04.4 LTS
 #> ✖ Are you using RStudio?
 #> ✔ R version 4.6.1 is installed
@@ -65,7 +65,6 @@ chk_requirements()
 #> → Checking R packages
 #> ✔ tidyverse version 2.0.0 is installed
 #> ✖ Please install package here
-#> ✔ quarto version 1.5.1 is installed
 #> ✖ You have some issues that need addressing
 ```
 
@@ -87,15 +86,14 @@ included in these data.frames.
 
     ---
     R:
-      recommended: 4.3.0
-      minimum: 4.2.0
+      recommended: 4.6.0
+      minimum: 4.5.0
     packages:
       tidyverse:
         recommended: 2.0.0
       here: NA
-      quarto: NA
     rstudio:
-      recommended: 2023.03.0
+      recommended: 2026.07.0
       options:
         save_workspace:
           value: never
