@@ -2,5 +2,3 @@
 
 0 errors | 0 warnings | 0 note
 
-* quotes R, RStudio
-* removes installed.packages()
