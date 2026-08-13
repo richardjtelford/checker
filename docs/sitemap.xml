@@ -1,30 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/chk_make.html</loc>
-  </url>
-  <url>
-    <loc>/reference/chk_requirements.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://richardjtelford.github.io/checker/404.html</loc></url>
+<url><loc>https://richardjtelford.github.io/checker/LICENSE-text.html</loc></url>
+<url><loc>https://richardjtelford.github.io/checker/LICENSE.html</loc></url>
+<url><loc>https://richardjtelford.github.io/checker/authors.html</loc></url>
+<url><loc>https://richardjtelford.github.io/checker/index.html</loc></url>
+<url><loc>https://richardjtelford.github.io/checker/news/index.html</loc></url>
+<url><loc>https://richardjtelford.github.io/checker/reference/chk_make.html</loc></url>
+<url><loc>https://richardjtelford.github.io/checker/reference/chk_requirements.html</loc></url>
+<url><loc>https://richardjtelford.github.io/checker/reference/index.html</loc></url>
 </urlset>
+

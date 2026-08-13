@@ -1,6 +1,6 @@
 Package: checker
 Type: Package
-Title: Checks 'R' Configuration Set Up Correctly Before Class
+Title: Check 'R' Configuration Set Up Correctly Before Class
 Version: 0.1.4
 Authors@R: 
   person("Richard J.", "Telford", email = "richard.telford@uib.no",
@@ -12,7 +12,7 @@ Description: Checks that students have the correct version of 'R', 'R' packages,
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/richardjtelford/checker/
+URL: https://github.com/richardjtelford/checker/, https://richardjtelford.github.io/checker/
 BugReports: https://github.com/richardjtelford/checker/issues
 Imports: 
     yaml,
